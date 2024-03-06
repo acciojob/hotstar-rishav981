@@ -23,7 +23,6 @@ public class WebseriesController {
             return webSeriesService.addWebSeries(webSeriesEntryDto);
 
         }catch (Exception e){
-            System.out.println(e.getMessage());
             return -1;
         }
     }
