@@ -10,15 +10,14 @@ public class WebSeriesEntryDto {
 
     private String seriesName;
 
-    private Integer ageLimit;
+    private int ageLimit;
 
-    private Double rating;
-    @Enumerated(EnumType.STRING)
+    private double rating;
     private SubscriptionType subscriptionType; //This denotes with which of subscriptionType this webseries comes ie. BASIC,PRO, ELITE
 
     private Integer productionHouseId;
 
-    public WebSeriesEntryDto(String seriesName, Integer ageLimit, Double rating, SubscriptionType subscriptionType, Integer productionHouseId) {
+    public WebSeriesEntryDto(String seriesName, int ageLimit, double rating, SubscriptionType subscriptionType, Integer productionHouseId) {
         this.ageLimit = ageLimit;
         this.seriesName = seriesName;
         this.rating = rating;
@@ -34,19 +33,19 @@ public class WebSeriesEntryDto {
         this.seriesName = seriesName;
     }
 
-    public Integer getAgeLimit() {
+    public int getAgeLimit() {
         return ageLimit;
     }
 
-    public void setAgeLimit(Integer ageLimit) {
+    public void setAgeLimit(int ageLimit) {
         this.ageLimit = ageLimit;
     }
 
-    public Double getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -58,7 +57,7 @@ public class WebSeriesEntryDto {
         this.subscriptionType = subscriptionType;
     }
 
-    public Integer getProductionHouseId() {
+    public int getProductionHouseId() {
         return productionHouseId;
     }
 

@@ -17,7 +17,6 @@ public class WebSeries {
     private int ageLimit;
 
     private double rating;
-    @Enumerated(EnumType.STRING)
     private SubscriptionType subscriptionType; //This denotes with which of subscriptionType this webseries comes ie. BASIC,PRO, ELITE
 
     @ManyToOne
@@ -51,7 +50,7 @@ public class WebSeries {
         this.seriesName = seriesName;
     }
 
-    public Integer getAgeLimit() {
+    public int getAgeLimit() {
         return ageLimit;
     }
 
@@ -59,7 +58,7 @@ public class WebSeries {
         this.ageLimit = ageLimit;
     }
 
-    public Double getRating() {return rating;}
+    public double getRating() {return rating;}
 
     public void setRating(double rating) {
         this.rating = rating;
