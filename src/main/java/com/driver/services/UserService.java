@@ -33,17 +33,18 @@ public class UserService {
         int cnt=0;
         User u = userRepository.findById(userId).get();
         for(WebSeries it : w){
-            if(it.getAgeLimit()<=u.getAge()){
+            if(u.getAge()>=it.getAgeLimit()){
                 if((it.getSubscriptionType()).equals(SubscriptionType.BASIC)){
                     cnt++;
                 }
                 else if((it.getSubscriptionType()).equals(SubscriptionType.PRO)){
-                    if(!u.getSubscription().getSubscriptionType().equals(SubscriptionType.BASIC)) {
+                    if(u.getSubscription().getSubscriptionType().equals(SubscriptionType.PRO) ||
+                            u.getSubscription().getSubscriptionType().equals(SubscriptionType.ELITE)) {
                         cnt++;
                     }
                 }
                 else{
-                    if(!u.getSubscription().getSubscriptionType().equals(SubscriptionType.ELITE)) {
+                    if(u.getSubscription().getSubscriptionType().equals(SubscriptionType.ELITE)) {
                         cnt++;
                     }
                 }
