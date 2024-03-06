@@ -38,14 +38,16 @@ public class WebSeriesService {
         newWebseries.setRating(webSeriesEntryDto.getRating());
         newWebseries.setAgeLimit(webSeriesEntryDto.getAgeLimit());
         newWebseries.setSubscriptionType(webSeriesEntryDto.getSubscriptionType());
+
         double newRating = (webSeriesEntryDto.getRating()+productionHouse.getRatings())/(productionHouse.getWebSeriesList().size()+1);
         productionHouse.setRatings(newRating);
+
         newWebseries.setProductionHouse(productionHouse);
         productionHouse.getWebSeriesList().add(newWebseries);
 
+        productionHouseRepository.save(productionHouse);
         webSeriesRepository.save(newWebseries);
 
-        productionHouseRepository.save(productionHouse);
         return newWebseries.getId();
     }
 
