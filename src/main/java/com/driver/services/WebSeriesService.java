@@ -45,8 +45,9 @@ public class WebSeriesService {
         Double newRating = (webSeriesEntryDto.getRating()+productionHouse.getRatings())/(productionHouse.getWebSeriesList().size()+1);
         productionHouse.setRatings(newRating);
         productionHouse.getWebSeriesList().add(newWebseries);
-//        productionHouseRepository.save(productionHouse);
+        productionHouseRepository.save(productionHouse);
         webSeriesRepository.save(newWebseries);
+
         return newWebseries.getId();
     }
 
