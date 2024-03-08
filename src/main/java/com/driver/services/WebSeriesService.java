@@ -31,6 +31,9 @@ public class WebSeriesService {
             throw new Exception("Series is already present");
         }
         Optional<ProductionHouse> oproductionHouse = productionHouseRepository.findById(webSeriesEntryDto.getProductionHouseId());
+        if(!oproductionHouse.isPresent()){
+            throw new IllegalArgumentException("Production House not found");
+        }
         ProductionHouse productionHouse = oproductionHouse.get();
         WebSeries newWebseries = new WebSeries();
 
@@ -48,7 +51,6 @@ public class WebSeriesService {
         double newRating = (webSeriesEntryDto.getRating()+productionHouse.getRatings())/(productionHouse.getWebSeriesList().size());
         productionHouse.setRatings(newRating);
         productionHouseRepository.save(productionHouse);
-
 
         return savedWebSeries.getId();
     }
